@@ -1,16 +1,16 @@
 steps:
   # build the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/cicd-336010/python-hello-world", "."]
+    args: ["build", "-t", "gcr.io/cicd-336010/docker_example ", "."]
     # push container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/cicd-336010/python-hello-world"]
+    args: ["push", "gcr.io/cicd-336010/docker_example "]
   #deploy container image to GKE
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - run
       - --filename=deployment/deployment.yaml
-      - --image=gcr.io/cicd-336010/python-hello-world:latest
+      - --image=gcr.io/cicd-336010/docker_example :latest
       - --location=us-central1-a
       - --cluster=test-cluster
 
@@ -18,6 +18,6 @@ steps:
     args:
       - run
       - --filename=deployment/service.yaml
-      - --image=gcr.io/cicd-336010/python-hello-world:latest
+      - --image=gcr.io/cicd-336010/docker_example :latest
       - --location=us-central1-a
       - --cluster=test-cluster

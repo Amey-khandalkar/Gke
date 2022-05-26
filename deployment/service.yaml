@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: python-hello-world
+  name: docker_example
 spec:
   selector:
-    run: python-hello-world
+    run: docker_example
   ports:
     - protocol: TCP
       port: 80
