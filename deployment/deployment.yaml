@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: docker_example
-  name: docker_example
+    run: pythondocker
+  name: pythondocker
 spec:
   replicas: 2
   selector:
     matchLabels:
-      run: docker_example
+      run: pythondocker
   template:
     metadata:
       labels:
-        run: docker_example
+        run: pythondocker
     spec:
       containers:
-        - image: gcr.io/cicd-336010/docker_example :latest
-          name: docker_example
+        - image: gcr.io/cicd-336010/pythondocker :latest
+          name: pythondocker
           ports:
             - containerPort: 8080
