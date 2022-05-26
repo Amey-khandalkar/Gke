@@ -1,7 +1,7 @@
 steps:
   # build the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "--tag", "gcr.io/cicd-336010/pythondocker:latest", "."]
+    args: ["build", "--tag", "gcr.io/cicd-336010/pythondocker", "."]
     # push container image
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/cicd-336010/pythondocker"]
@@ -10,7 +10,7 @@ steps:
     args:
       - run
       - --filename=deployment/deployment.yaml
-      - --image=gcr.io/cicd-336010/pythondocker:latest
+      - --image=gcr.io/cicd-336010/pythondocker
       - --location=us-central1-a
       - --cluster=test-cluster
 
@@ -18,6 +18,6 @@ steps:
     args:
       - run
       - --filename=deployment/service.yaml
-      - --image=gcr.io/cicd-336010/pythondocker:latest
+      - --image=gcr.io/cicd-336010/pythondocker
       - --location=us-central1-a
       - --cluster=test-cluster
