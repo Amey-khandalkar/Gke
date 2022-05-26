@@ -4,7 +4,7 @@ steps:
     args: ["build", "--tag", "gcr.io/cicd-336010/pythondocker:latest", "."]
     # push container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/cicd-336010/pythondocker:latest"]
+    args: ["push", "gcr.io/cicd-336010/pythondocker"]
   #deploy container image to GKE
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
