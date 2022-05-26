@@ -1,8 +1,12 @@
+# syntax=docker/dockerfile:1
 
-FROM node:12-alpine3.14
-WORKDIR /app
-COPY package.json /app
-RUN  npm cache clean --force
-COPY . /app
-CMD node index.js
-EXPOSE 8081
+FROM python:3.8-slim-buster
+
+WORKDIR /python-docker
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
+COPY . .
+
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]

@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: hello-world
-  name: hello-world
+    run: python-hello-world
+  name: python-hello-world
 spec:
   replicas: 2
   selector:
     matchLabels:
-      run: hello-world
+      run: python-hello-world
   template:
     metadata:
       labels:
-        run: hello-world
+        run: python-hello-world
     spec:
       containers:
-        - image: gcr.io/cicd-336010/hello-world:latest
-          name: hello-world
+        - image: gcr.io/cicd-336010/python-hello-world:latest
+          name: python-hello-world
           ports:
             - containerPort: 8080

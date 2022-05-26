@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: hello-world
+  name: python-hello-world
 spec:
   selector:
-    run: hello-world
+    run: python-hello-world
   ports:
     - protocol: TCP
       port: 80
