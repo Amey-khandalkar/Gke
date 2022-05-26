@@ -13,3 +13,9 @@ steps:
       - --image=gcr.io/cicd-336010/hello-world:latest
       - --location=us-central1-a
       - --cluster=test-cluster
+  args:
+      - run
+      - --filename=deployment/service.yaml
+      - --image=gcr.io/cicd-336010/hello-world:latest
+      - --location=us-central1-a
+      - --cluster=test-cluster
