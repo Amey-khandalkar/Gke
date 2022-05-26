@@ -1,7 +1,7 @@
 steps:
   # build the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/cicd-336010/docker_example ", "."]
+    args: ["build", "-t", "gcr.io/cicd-336010/docker_example", "."]
     # push container image
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/cicd-336010/docker_example "]
