@@ -15,7 +15,7 @@ spec:
         run: pythondocker
     spec:
       containers:
-        - image: gcr.io/cicd-336010/pythondocker :latest
+        - image: gcr.io/cicd-336010/pythondocker:latest
           name: pythondocker
           ports:
             - containerPort: 8080
