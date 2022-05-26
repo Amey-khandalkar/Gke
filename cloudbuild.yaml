@@ -11,12 +11,12 @@ steps:
       - run
       - --filename=deployment/deployment.yaml
       - --image=gcr.io/cicd-336010/pythondocker:latest
-      - --location=us-central1
+      - --location=us-central1-a
       - --cluster=test-cluster
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - run
       - --filename=deployment/service.yaml
       - --image=gcr.io/cicd-336010/pythondocker:latest
-      - --location=us-central1
+      - --location=us-central1-a
       - --cluster=test-cluster
