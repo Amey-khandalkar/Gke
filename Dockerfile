@@ -1,8 +1,13 @@
-FROM python:alpine3.7
-COPY . /app
+
+FROM node:12.18.1
+ENV NODE_ENV=production
+
 WORKDIR /app
-COPY ./requirements.txt /requirements.txt
-RUN pip3 install -r requirements.txt
-EXPOSE 5001
-ENTRYPOINT [ "python3" ]
-CMD [ "app.py" ]
+
+COPY ["package.json", "package-lock.json*", "./"]
+
+RUN npm install --production
+
+COPY . .
+
+CMD [ "node", "server.js" ]

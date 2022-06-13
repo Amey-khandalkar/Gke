@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: pythondocker
-  name: pythondocker
+    run: node-docker
+  name: node-docker
 spec:
   replicas: 2
   selector:
     matchLabels:
-      run: pythondocker
+      run: node-docker
   template:
     metadata:
       labels:
-        run: pythondocker
+        run: node-docker
     spec:
       containers:
-        - image: gcr.io/cicd-336010/pythondocker:latest
-          name: pythondocker
+        - image: gcr.io/cicd-336010/node-docker:latest
+          name: node-docker
           ports:
             - containerPort: 8080
